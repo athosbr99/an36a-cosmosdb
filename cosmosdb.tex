@@ -21,7 +21,7 @@
 \begin{document} 
 
 \maketitle
-     
+
 \begin{resumo} 
 \end{resumo}
 
@@ -29,13 +29,39 @@
 
 \section{Problematização} 
 
-O Azure CosmosDB é um banco de dados NoSQL com suporte a diversas APIs, tais como as do MongoDB, um popular banco de dados NoSQL. A funcionalidade de um banco de dados NoSQL é diferente dos RDBMS (Rational Database Management System) existentes e utilizados no mercado (MySQL, PostgreSQL, Microsoft SQL Server, etc), tendo que plataformas NoSQL tem um foco diferente e se propõe a resolver alguns problemas encontrados no uso de RDBMS, de acordo com \cite{Membrey2011} e \cite{Oliveira2011}:
+\subsection{NoSQL}
+Na industria de tecnologia de informação, é comum a utilização dos bancos de dados relacionais que usufruem da linguagem SQL para as operações. Porém, com a crescente demanda
+de maleabilidade na modelagem de um banco de dados em empresas com requisitos que não estão com uma estrutura de dados bem definida ou em constante mudança, foi necessária a 
+utilização de soluções além de bancos de dados relacionais.
+
+O Azure CosmosDB é um banco de dados NoSQL com suporte a diversas APIs, tais como as do MongoDB, um popular banco de dados NoSQL. A funcionalidade de um banco de dados 
+NoSQL é diferente dos bancos relacionais existentes e utilizados no mercado (MySQL, PostgreSQL, Microsoft SQL Server, etc), tendo que plataformas 
+NoSQL tem um foco diferente e se propõe a resolver alguns problemas encontrados no uso de bancos relacionais, de acordo com \cite{Membrey2011} e \cite{Oliveira2011}:
 \begin{itemize}
 	\item Fácil escalabilidade horizontal;
-	\item Perfomance;
-	\item \textit{Sharding} (diferentes partes de um \textit{dataset} espalhadas por multíplos servidores);
+	\item Performance;
+	\item \textit{Sharding} (diferentes partes de um \textit{dataset} espalhadas por múltiplos servidores);
 	\item Uso apropriado para dados não estruturados.
 \end{itemize}
+
+O uso de um banco de dados NoSQL é recomendado para ambientes dinâmicos, que precisem ser escaláveis entre várias máquinas de maneira mais rápida, com uma estrutura de dados que não está bem 
+definida ou em constante mudança. É importante ressaltar que o NoSQL não tem como foco substituir todos os bancos relacionais existentes e sim fornecer uma alternativa para os que 
+precisam de mais velocidade e estar menos presos a uma modelagem. 
+
+\subsection{Azure CosmosDB}
+Além das vantagens do NoSQL, o CosmosDB fornece outras funcionalidades:
+
+\begin{itemize}
+	\item Georeplicação via portal nos \textit{datacenters} da Azure;
+	\item Baixa latência de leitura/escrita;
+	\item Serviço autogerenciado;
+	\item Suporta múltiplos \textit{data models};
+	\item Escalabilidade de custo;
+	\item \textit{Failover} automático, se configurado.
+\end{itemize}
+
+É importante lembrar que o CosmosDB, apesar de utilizar diversas tecnologias \textit{open source}, é um serviço proprietário da Microsoft e seu uso é limitado dentro dos 
+servidores da Azure.
 
 \bibliography{bibliografia}
 
