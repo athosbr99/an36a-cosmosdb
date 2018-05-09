@@ -30,14 +30,15 @@
 \section{Problematização} 
 
 \subsection{NoSQL}
-Na industria de tecnologia de informação, é comum a utilização dos bancos de dados relacionais que usufruem da linguagem SQL para as operações. Porém, com a crescente demanda
-de maleabilidade na modelagem de um banco de dados em empresas com requisitos que não estão com uma estrutura de dados bem definida ou em constante mudança, foi necessária a 
-utilização de soluções além de bancos de dados relacionais.
+Na indústria de tecnologia de informação é comum a utilização dos bancos de dados relacionais que usufruem da linguagem SQL para as operações. Com a crescente demanda
+de maleabilidade na modelagem de um banco de dados em empresas com requisitos que não estão com uma estrutura de dados bem definida. precisam de um desenvolvimento mais rápido
+ou estão em constante mudança, foi necessária a utilização de soluções além de bancos de dados relacionais \cite{Oliveira2011}.
 
-O conceito de bancos de dados não relacionais existe desde 1960 e reganhou popularidade em 2007, principalmente com o anúncio do Amazon DynamoDB, serviço NoSQL na Amazon Web Service.
-A primeira implementação NoSQL foi criada por Carlo Stozzi, aonde um banco de dados \textit{open source} em shell não utilizava nenhuma interface SQL para ser manipulado. 
+O conceito de bancos de dados não relacionais existe desde 1960 e ganhou popularidade entre 2007 e 2010, principalmente com o anúncio do Amazon Dynamo, serviço de uso interno no \textit{e-commerce}
+da Amazon, que posteriormente se tornou a base do AWS DynamoDB, serviço NoSQL disponível para uso na Amazon Web Services \cite{DeCandia2007}.
+A primeira implementação NoSQL foi criada por Carlo Stozzi, aonde um banco de dados \textit{open source} em shell não utilizava nenhuma interface SQL para ser manipulado \cite{Lith2010}. 
 
-Cada implementação NoSQL possuí uma abordagem diferente, tais como \cite{Lith2010}:
+Cada implementação NoSQL possuí uma abordagem diferente, tais como \cite{Lith2010} \cite{Leavitt2010}:
 
 \begin{itemize}
 	\item \textbf{\textit{Key-value}:} Armazena um par de chaves e valores, funcionando com um \textit{array} associativo. Pode armazenar dados estruturados ou dados sem estrutura.
@@ -52,19 +53,29 @@ definida ou em constante mudança. É importante ressaltar que o NoSQL não tem 
 precisam de mais velocidade e estar menos presos a uma modelagem \cite{Oliveira2011} \cite{Lith2010} \cite{Leavitt2010}. 
 
 \subsection{Azure CosmosDB}
-Além das vantagens do NoSQL, o CosmosDB fornece outras funcionalidades \cite{Paz2018}:
+O produto CosmosDB iniciou em 2010 como um projeto interno na Microsoft, conhecido como Projeto Florence. O objetivo do projeto era resolver problemas de desenvolvimento em aplicações de Internet
+que eram utilizadas em larga escala, similar a razão da Amazon ter criado o Dynamo. Em 2015 o projeto foi disponibilizado para usuários do Azure com o nome de DocumentDB. Em 2017, no evento Build 2017,
+o DocumentDB foi lançado com o nome de CosmosDB, com as funcionalidades já existentes, mais a distribuição global presente hoje \cite{Paz2018}.
+
+Além das vantagens do NoSQL, o CosmosDB fornece outras funcionalidades. A mais importante é a georeplicação via portal nos \textit{datacenters} da Azure e além desta, tem baixa latência de leitura/escrita,
+serviço autogerenciado -- não é necessário atualizar ou modificar nenhum \textit{software}, suporta múltiplos \textit{data models}, escalabilidade de custo e \textit{failover} automático, se configurado.
+
+É importante lembrar que o CosmosDB, apesar de utilizar e suportar diversas tecnologias \textit{open source}, é um serviço proprietário da Microsoft e seu uso é limitado dentro dos 
+servidores da Azure.
+
+\subsubsection{Modelos de Consistência}
+O CosmosDB possui cinco modelos de consistência que podem ser escolhidos de acordo com a necessidade do aplicativo em que será usado. Cada modelo de consistência possui vantagens, desvantagens e limitações.
+É possível entre \cite{Paz2018}:
 
 \begin{itemize}
-	\item Georeplicação via portal nos \textit{datacenters} da Azure;
-	\item Baixa latência de leitura/escrita;
-	\item Serviço autogerenciado;
-	\item Suporta múltiplos \textit{data models};
-	\item Escalabilidade de custo;
-	\item \textit{Failover} automático, se configurado.
+	\item \textbf{\textit{Strong Consistency:}} Garante que toda leitura de um item irá retornar a versão mais recente deste item e o usuário nunca irá ver uma versão incompleta do item. 
+	É o mesmo modelo de consistência existente em bancos de dados relacionais, por isso o CosmosDB não permite que quando o modelo \textit{strong consistency} está configurado, não é possível utilizar a funcionalidade
+	de replicação global.
+	\item \textbf{\textit{Eventual Consistency:}} Garante que eventualmente, todas as replicas irão, eventualmente, convergir para refletir a escrita mais recente. Em termos de consistência de dados é um modelo fraco, mas,
+	oferece a menor latência de todos os modelos oferecidos. 
+	\item \textbf{\textit{Bound Staleness Consistency Model:}} Neste modo é possível afirmar que as leituras irão atrasar entre as escritas por um numero K de operações ou em um intervalo t de tempo. O valor K deve estar entre
+	10 e 1000000 operações ou entre 100000 e 1000000 se o banco é globalmente distribuido. O valor t pode ser entre cinco segundos e um dia ou cinco minutos e um dia para bancos distribuidos globalmente.
 \end{itemize}
-
-É importante lembrar que o CosmosDB, apesar de utilizar diversas tecnologias \textit{open source}, é um serviço proprietário da Microsoft e seu uso é limitado dentro dos 
-servidores da Azure.
 
 \bibliography{bibliografia}
 
