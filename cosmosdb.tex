@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{sbc-template}
-\usepackage{graphicx,url}
+\usepackage{graphicx,url,float}
 \usepackage{hyperref}
 \usepackage[alf]{abntex2cite}
 \usepackage[brazil]{babel}   
@@ -12,7 +12,7 @@
 
 \author{Athos Castro Moreno}
 
-\address{Departamento de Computação - Universidade Tecnológica Federal do Paraná
+\address{Departamento de wComputação - Universidade Tecnológica Federal do Paraná
   (UTFPR)\\
   Avenida Alberto Carazzai, 1640 -- 86300000 -- Cornélio Procópio -- PR -- Brasil
   \email{athos@alunos.utfpr.edu.br}
@@ -58,14 +58,14 @@ que eram utilizadas em larga escala, similar a razão da Amazon ter criado o Dyn
 o DocumentDB foi lançado com o nome de CosmosDB, com as funcionalidades já existentes, mais a distribuição global presente hoje \cite{Paz2018}.
 
 Além das vantagens do NoSQL, o CosmosDB fornece outras funcionalidades. A mais importante é a georeplicação via portal nos \textit{datacenters} da Azure e além desta, tem baixa latência de leitura/escrita,
-serviço autogerenciado -- não é necessário atualizar ou modificar nenhum \textit{software}, suporta múltiplos \textit{data models}, escalabilidade de custo e \textit{failover} automático, se configurado.
+serviço autogerenciado -- não é necessário atualizar ou modificar nenhum \textit{software}, suporta múltiplos \textit{data models}, escalabilidade de custo e \textit{failover} automático, se configurado \cite{Paz2018} \cite{Shukla2015}.
 
 É importante lembrar que o CosmosDB, apesar de utilizar e suportar diversas tecnologias \textit{open source}, é um serviço proprietário da Microsoft e seu uso é limitado dentro dos 
 servidores da Azure.
 
 \subsubsection{Modelos de Consistência}
 O CosmosDB possui cinco modelos de consistência que podem ser escolhidos de acordo com a necessidade do aplicativo em que será usado. Cada modelo de consistência possui vantagens, desvantagens e limitações.
-É possível entre \cite{Paz2018}:
+É possível entre \cite{Paz2018} \cite{Shukla2015}:
 
 \begin{itemize}
 	\item \textbf{\textit{Strong Consistency:}} Garante que toda leitura de um item irá retornar a versão mais recente deste item e o usuário nunca irá ver uma versão incompleta do item. 
@@ -78,6 +78,31 @@ O CosmosDB possui cinco modelos de consistência que podem ser escolhidos de aco
 	\item \textbf{\textit{Session Consistency Model:}} O nível de consistência é definido na sessão do cliente. Todas as leituras e escritas estão sempre atualizadas dentro da mesma sessão, durante seu tempo de vida. Esse modelo fornece uma
 	alta taxa de transferência e baixas taxas de latência de escrita e é o modo padrão para toda conta nova do CosmosDB. 
 \end{itemize}
+
+\subsubsection{Como utilizar}
+O CosmosDB é um serviço pago da Azure, sendo necessário criar uma conta na Azure para utilizar. Para usuários novos, a Azure fornece um ano de serviços selecionados de uso gratuito, incluindo o CosmosDB. É necessário possuir um cartão de crédito
+para ativar a conta da Azure e utilizar os serviços no período gratuito. As figuras \ref{fig:az1} e \ref{fig:az2} mostram o processo de criação de um banco de dados MongoDB novo no CosmosDB.
+
+\begin{figure}[H]
+	\label{fig:az1}
+	\caption{Criação do banco de dados CosmosDB} 
+	\includegraphics[scale=0.42]{img/az1.png}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\label{fig:az2}
+	\caption{Esperando o processo terminar a criação da instância}
+	\includegraphics[scale=0.45]{img/az2.png}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\label{fig:az3}
+	\caption{\textit{String} de conexão do MongoDB}
+	\includegraphics[scale=0.37]{img/az3.png}
+	\centering
+\end{figure}
 
 \bibliography{bibliografia}
 
