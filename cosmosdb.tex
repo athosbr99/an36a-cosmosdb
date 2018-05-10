@@ -74,7 +74,9 @@ O CosmosDB possui cinco modelos de consistência que podem ser escolhidos de aco
 	\item \textbf{\textit{Eventual Consistency:}} Garante que eventualmente, todas as replicas irão, eventualmente, convergir para refletir a escrita mais recente. Em termos de consistência de dados é um modelo fraco, mas,
 	oferece a menor latência de todos os modelos oferecidos. 
 	\item \textbf{\textit{Bound Staleness Consistency Model:}} Neste modo é possível afirmar que as leituras irão atrasar entre as escritas por um numero K de operações ou em um intervalo t de tempo. O valor K deve estar entre
-	10 e 1000000 operações ou entre 100000 e 1000000 se o banco é globalmente distribuido. O valor t pode ser entre cinco segundos e um dia ou cinco minutos e um dia para bancos distribuidos globalmente.
+	10 e 1000000 operações ou entre 100000 e 1000000 se o banco é globalmente distribuído. O valor t pode ser entre cinco segundos e um dia ou cinco minutos e um dia para bancos distribuídos globalmente.
+	\item \textbf{\textit{Session Consistency Model:}} O nível de consistência é definido na sessão do cliente. Todas as leituras e escritas estão sempre atualizadas dentro da mesma sessão, durante seu tempo de vida. Esse modelo fornece uma
+	alta taxa de transferência e baixas taxas de latência de escrita e é o modo padrão para toda conta nova do CosmosDB. 
 \end{itemize}
 
 \bibliography{bibliografia}
