@@ -73,15 +73,17 @@ O CosmosDB possui cinco modelos de consistência que podem ser escolhidos de aco
 	de replicação global.
 	\item \textbf{\textit{Eventual Consistency:}} Garante que eventualmente, todas as replicas irão, eventualmente, convergir para refletir a escrita mais recente. Em termos de consistência de dados é um modelo fraco, mas,
 	oferece a menor latência de todos os modelos oferecidos. 
-	\item \textbf{\textit{Bound Staleness Consistency Model:}} Neste modo é possível afirmar que as leituras irão atrasar entre as escritas por um numero K de operações ou em um intervalo t de tempo. O valor K deve estar entre
-	10 e 1000000 operações ou entre 100000 e 1000000 se o banco é globalmente distribuído. O valor t pode ser entre cinco segundos e um dia ou cinco minutos e um dia para bancos distribuídos globalmente.
+	\item \textbf{\textit{Bound Staleness Consistency Model:}} Neste modo é possível afirmar que as leituras irão atrasar entre as escritas por um numero \textit{K} de operações ou em um intervalo \textit{t} de tempo. O valor \textit{K} deve estar entre
+	10 e 1000000 operações ou entre 100000 e 1000000 se o banco é globalmente distribuído. O valor \textit{t} pode ser entre cinco segundos e um dia ou cinco minutos e um dia para bancos distribuídos globalmente.
 	\item \textbf{\textit{Session Consistency Model:}} O nível de consistência é definido na sessão do cliente. Todas as leituras e escritas estão sempre atualizadas dentro da mesma sessão, durante seu tempo de vida. Esse modelo fornece uma
 	alta taxa de transferência e baixas taxas de latência de escrita e é o modo padrão para toda conta nova do CosmosDB. 
+	\item \textbf{\textit{Consistent Prefix Consistency Model:}} Similar ao modelo anterior, garante que as leituras nunca irão ver escritas fora de ordem. 
 \end{itemize}
 
 \subsubsection{Como utilizar}
 O CosmosDB é um serviço pago da Azure, sendo necessário criar uma conta na Azure para utilizar. Para usuários novos, a Azure fornece um ano de serviços selecionados de uso gratuito, incluindo o CosmosDB. É necessário possuir um cartão de crédito
-para ativar a conta da Azure e utilizar os serviços no período gratuito. As figuras \ref{fig:az1} e \ref{fig:az2} mostram o processo de criação de um banco de dados MongoDB novo no CosmosDB.
+para ativar a conta da Azure e utilizar os serviços no período gratuito. As figuras \ref{fig:az1}, \ref{fig:az2} e \ref{fig:az3} mostram o processo de criação de um banco de dados MongoDB novo no CosmosDB. A figura \ref{fig:az4} mostra o mapa de 
+georeplicação no portal da Azure. A figura \ref{fig:az5} mostra os modos de consistência para serem escolhidos no portal da Azure.
 
 \begin{figure}[H]
 	\label{fig:az1}
@@ -101,6 +103,20 @@ para ativar a conta da Azure e utilizar os serviços no período gratuito. As fi
 	\label{fig:az3}
 	\caption{\textit{String} de conexão do MongoDB}
 	\includegraphics[scale=0.37]{img/az3.png}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\label{fig:az4}
+	\caption{Mapa de georeplicação}
+	\includegraphics[scale=0.37]{img/az4.png}
+	\centering
+\end{figure}
+
+\begin{figure}[H]
+	\label{fig:az5}
+	\caption{Modos de consistência}
+	\includegraphics[scale=0.37]{img/az5.png}
 	\centering
 \end{figure}
 
