@@ -116,6 +116,19 @@ georeplicação no portal da Azure. A figura \ref{fig:az5} mostra os modos de co
 \end{figure}
 
 \subsection{Modelo de cobrança}
+O CosmosDB utiliza o conceito de \textit{Request Units} -- traduzido como unidades de solicitação -- para a cobrança do serviço. Esse número abstrai recursos físicos necessários para as requisições, é 
+determinístico por operação e são isolados por região, significando que caso um servidor esteja replicado em mais de uma região, cada leitura por região irá exigir suas próprias unidades de requisição.
+Cada requisição exige uma quantidade de unidade de solicitação que é baseada na quantidade computacional necessária para executar a solicitação.
+
+É possível utilizar o website \url{https://www.documentdb.com/capacityplanner} para estimar quanto será gasto em unidades de solicitação para processar um arquivo JSON. Um exemplo de calculo é mostrado na
+Figura \ref{fig:az6}. O exemplo utilizado foi retirado da página \url{https://www.json.org/example.html}.
+
+\begin{figure}[H]
+	\label{fig:az6}
+	\caption{Estimativa de uso de unidades de solicitação}
+	\includegraphics[scale=0.37]{img/az6.png}
+	\centering
+\end{figure}
 
 \subsection{Concorrentes}
 
