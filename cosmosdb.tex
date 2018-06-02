@@ -90,28 +90,28 @@ georeplicação no portal da Azure. A figura \ref{fig:az5} mostra os modos de co
 \begin{figure}[H]
 	\label{fig:az1}
 	\caption{Criação do banco de dados CosmosDB} 
-	\includegraphics[scale=0.42]{img/az1.png}
+	\includegraphics[scale=0.27]{img/az1.png}
 	\centering
 \end{figure}
 
 \begin{figure}[H]
 	\label{fig:az2}
 	\caption{Esperando o processo terminar a criação da instância}
-	\includegraphics[scale=0.45]{img/az2.png}
+	\includegraphics[scale=0.27]{img/az2.png}
 	\centering
 \end{figure}
 
 \begin{figure}[H]
 	\label{fig:az4}
 	\caption{Mapa de georeplicação}
-	\includegraphics[scale=0.37]{img/az4.png}
+	\includegraphics[scale=0.27]{img/az4.png}
 	\centering
 \end{figure}
 
 \begin{figure}[H]
 	\label{fig:az5}
 	\caption{Modos de consistência}
-	\includegraphics[scale=0.37]{img/az5.png}
+	\includegraphics[scale=0.27]{img/az5.png}
 	\centering
 \end{figure}
 
@@ -126,11 +126,15 @@ Figura \ref{fig:az6}. O exemplo utilizado foi retirado da página \url{https://w
 \begin{figure}[H]
 	\label{fig:az6}
 	\caption{Estimativa de uso de unidades de solicitação}
-	\includegraphics[scale=0.37]{img/az6.png}
+	\includegraphics[scale=0.27]{img/az6.png}
 	\centering
 \end{figure}
 
 \subsection{Concorrentes}
+Os concorrentes diretos do Azure CosmosDB são o BigTable (Google Cloud Platform), DynamoDB (Amazon Web Services) e AosaraDB (Alibaba Cloud). Apesar de todos serem bancos de dados NoSQL autogerenciaveis, apenas o AWS DynamoDB fornece replicação 
+global que também é disponível no CosmosDB. Nenhum dos concorrentes citados fornece acesso a multiplas APIs igual é fornecido no Azure CosmosDB.
+
+\section{Exemplo prático}
 
 \bibliography{bibliografia}
 
