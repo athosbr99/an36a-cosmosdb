@@ -1,0 +1,16 @@
+<html lang="pt-BR"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>CosmosDB</title>
+    </h:head>
+	<h:body>
+	<h:form>
+		<p:growl id="growl" showDetail="true" sticky="true" />  
+		<p:panel header="Insira uma marca">
+			<p:inputText value="#{marca.nome}" required="true"/>
+			<p:commandButton value="Enviar" icon="ui-disk-icon" actionListener="#{marca.save}" update="growl"/>
+		</p:panel>
+	</h:form>
+	</h:body>
+</html>
