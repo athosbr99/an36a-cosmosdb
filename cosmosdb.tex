@@ -84,8 +84,8 @@ O CosmosDB possui cinco modelos de consistência que podem ser escolhidos de aco
 
 \subsection{Como utilizar}
 O CosmosDB é um serviço pago da Azure, sendo necessário criar uma conta na Azure para utilizar. Para usuários novos, a Azure fornece um ano de serviços selecionados de uso gratuito, incluindo o CosmosDB. É necessário possuir um cartão de crédito
-para ativar a conta da Azure e utilizar os serviços no período gratuito. As figuras \ref{fig:az1} e \ref{fig:az2} mostram o processo de criação de um banco de dados MongoDB novo no CosmosDB. A figura \ref{fig:az4} mostra o mapa de 
-georeplicação no portal da Azure. A figura \ref{fig:az5} mostra os modos de consistência para serem escolhidos no portal da Azure.
+para ativar a conta da Azure e utilizar os serviços no período gratuito. As figuras 1 e 2 mostram o processo de criação de um banco de dados MongoDB novo no CosmosDB. A figura 3 mostra o mapa de 
+georeplicação no portal da Azure. A figura 4 mostra os modos de consistência para serem escolhidos no portal da Azure.
 
 \begin{figure}[H]
 	\label{fig:az1}
@@ -121,7 +121,7 @@ determinístico por operação e são isolados por região, significando que cas
 Cada requisição exige uma quantidade de unidade de solicitação que é baseada na quantidade computacional necessária para executar a solicitação.
 
 É possível utilizar o website \url{https://www.documentdb.com/capacityplanner} para estimar quanto será gasto em unidades de solicitação para processar um arquivo JSON. Um exemplo de calculo é mostrado na
-Figura \ref{fig:az6}. O exemplo utilizado foi retirado da página \url{https://www.json.org/example.html}.
+Figura 5. O exemplo utilizado foi retirado da página \url{https://www.json.org/example.html}.
 
 \begin{figure}[H]
 	\label{fig:az6}
@@ -132,9 +132,16 @@ Figura \ref{fig:az6}. O exemplo utilizado foi retirado da página \url{https://w
 
 \subsection{Concorrentes}
 Os concorrentes diretos do Azure CosmosDB são o BigTable (Google Cloud Platform), DynamoDB (Amazon Web Services) e AosaraDB (Alibaba Cloud). Apesar de todos serem bancos de dados NoSQL autogerenciaveis, apenas o AWS DynamoDB fornece replicação 
-global que também é disponível no CosmosDB. Nenhum dos concorrentes citados fornece acesso a multiplas APIs igual é fornecido no Azure CosmosDB.
+global que também é disponível no CosmosDB. Nenhum dos concorrentes citados fornece acesso a multíplas APIs igual é fornecido no Azure CosmosDB.
 
 \section{Exemplo prático}
+Um exemplo prático foi feito para demonstrar o funcionamento do CosmosDB. A prova de conceito foi feita utilizando JavaServer Faces com o propósito de mostrar que é possível utilizar o serviço em tecnologias consideradas mais antigas. Instruções e imagens podem
+ser encontradas no repositório \url{https://github.com/athosbr99/an36a-cosmosdb}.
+
+\section{Conclusão}
+O Azure CosmosDB é um serviço para quem precisa de um banco de dados NoSQL autogerenciado e com capacidade de replicação que seja prático de ser utilizado, além da possibilidade de utilizar diversas implementações NoSQL disponíveis. Porém, seu preço e curva de
+aprendizado pode ser proibitivo para times com pouco orçamento, curto prazo de entrega ou com poucos profissionais experientes. Outro fator que pode influenciar a decisão é a obrigatoriedade de utilizar a infraestrutura da Microsoft, que em alguns casos é um incentivo devido a abstração fornecida pelo
+Azure e em outros casos pode ser um impeditivo, seja por regras de \textit{compliance} ou politicas internas de uma empresa. 
 
 \bibliography{bibliografia}
 
