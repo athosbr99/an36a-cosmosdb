@@ -9,7 +9,7 @@
 		<p:growl id="growl" showDetail="true" sticky="true" />  
 		<p:panel header="Insira uma marca">
 			<p:inputText value="#{marca.nome}" required="true"/>
-			<p:commandButton value="Enviar" icon="ui-disk-icon" actionListener="#{marca.save}" update="growl"/>
+			<p:commandButton value="Enviar" icon="ui-disk-icon" actionListener="#{marca.createModelo}" update="growl"/>
 		</p:panel>
 	</h:form>
 	</h:body>

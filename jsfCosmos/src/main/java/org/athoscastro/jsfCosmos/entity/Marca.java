@@ -1,26 +1,20 @@
 package org.athoscastro.jsfCosmos.entity;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.faces.application.FacesMessage;
-import java.util.List;
-import static javax.persistence.FetchType.EAGER;
-import org.hibernate.annotations.GenericGenerator;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.mongodb.MongoClient;
 
-@Entity
 @ManagedBean
 public class Marca {
-	@Id
-	@GeneratedValue(generator="uuid")
-	@GenericGenerator(name="uuid", strategy="uuid2")
 	private String id;
-	private String nome;
-	@OneToMany(mappedBy = "marcasFK", fetch = EAGER)
-	private List<Modelo> modelos; 
+	private String nome; 
+	private final static String host = "172.17.0.2";
+	private final static int port = 27017;
 
 	public String getNome() {
 		return nome;
@@ -37,18 +31,18 @@ public class Marca {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	public List<Modelo> getModelos() {
-		return modelos;
-	}
-
-	public void setModelos(List<Modelo> modelos) {
-		this.modelos = modelos;
-	}
-
-	public void save() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null, new FacesMessage("Sucesso", nome));
-		System.out.println(nome);	
+	
+	public void createModelo() {
+		try {
+			MongoClient mongo = new MongoClient(host, port);
+			DB db = mongo.getDB("jsfCosmosDB");
+			DBCollection coll = db.getCollection("carros");
+			DBObject doc = new BasicDBObject("nome", nome);
+			coll.insert(doc);
+			FacesContext context = FacesContext.getCurrentInstance();
+	 		context.addMessage(null, new FacesMessage("Sucesso", "Cadastro feito com sucesso."));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
