@@ -31,4 +31,23 @@ public class ManagerEJB {
 		Marca marca = (Marca) query.getSingleResult();
 		return marca;
 	}
+	
+	public List<Modelo> findAllModelos(String idMarca) {
+		Query query = em.createQuery("FROM Marca");
+		query.setParameter("id", idMarca);
+		Marca marca = (Marca) query.getSingleResult();
+		return marca.getModelos();
+	}
+	
+	public Marca findMarcaByName(String marcaNome) {
+		Query query = em.createQuery("FROM Marca where name=:name");
+		query.setParameter("name", marcaNome);
+		return (Marca) query.getSingleResult();
+	}
+	
+	public List<Marca> findAllMarcas() {
+		Query query = em.createQuery("FROM Marca");
+		List<Marca> marcas = query.getResultList();
+		return marcas;
+	}
 }
